@@ -1,0 +1,25 @@
+the deconstruct now costs 100 money cards per 10 blocks, and recycle costs 200.
+The money cards must be deposited in the target box first
+The only thing you need to modify here is the name of the target container. ie Deconbox-gm-base-1
+You will have to manually modify the target vessels core to Core-Destruct-IDNUMBER
+After the script removes the vessel you will have to manually remove the core.
+
+{{#entitiesbyname '*' 500}}
+{{#each .}}
+{{#test @root.E.Id neq Id}}
+{{Name}}:
+{{#deconstruct . 'Deconbox-gm-base-1' }}
+min: {{MinPos}}
+max: {{MaxPos}}
+current X: {{X}}
+current Y: {{Y}}
+current Z: {{Z}}
+TotalBlocks: {{TotalBlocks}}
+CheckedBlocks: {{CheckedBlocks}}
+RemovedBlocks: {{RemovedBlocks}}
+{{else}}
+- {{/deconstruct}}
+
+{{/test}}
+{{/each}}
+{{/entitiesbyname}}
