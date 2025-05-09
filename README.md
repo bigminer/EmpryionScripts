@@ -1,35 +1,62 @@
-# EmpryionScripts
-This repo is a collection of scripts and my attempt to learn how to use them.
+# EmpyrionScripts
 
-The original authors repo can be found here.
-https://github.com/GitHub-TC/EmpyrionScripting
+A personal collection of Empyrion scripting examples and my notes as I learn to use them.
 
-Much of this is not english so I found it hard to understand. 
+---
 
+## 📂 Original Repository
 
-So far what I have learned.
+The original author’s repo is available here:  
+[GitHub-TC/EmpyrionScripting](https://github.com/GitHub-TC/EmpyrionScripting)
 
-Every piece of script code is wrapped in curly brackets like this - {{ scriptcode }} 
+---
 
-if you place !-- immediatly after the first two brackets it is a script comment. example. {{!-- this is a comment --}}
+## 📝 What I’ve Learned So Far
 
-set is a keyword that designates a variable followed by 'variablename' and 'value(s)'. So a variable called var would be  ~set 'var' ''
-to give a variable a value or list, then do ~set 'var' 'myvalue' or for a list '1,2,3', basically an array
+### Handlebars‐Style Syntax
+- **Script blocks** are wrapped in double curly braces:  
+  `{{ scriptCode }}`
+- **Comments** start with `!--` immediately after the opening braces:  
+  `{{!-- this is a comment --}}`
 
-As a convention, to avoid possible conflicts of items in game, use this pattern when renaming items such as containers. ItemName-PlayerInitials-ShipName-somenumber
+### Variables
+- Use the `~set` keyword to declare or assign a variable:  
+  `~set 'varName' 'value'`
+- To assign a list (array), separate items with commas:  
+  `~set 'myList' '1,2,3'`
 
-Container-GM-myship-1 in this example would be  container on my ship
+### Naming Conventions
+To avoid conflicts with in-game items, use this pattern when renaming:
+```
+<ItemType>-<YourInitials>-<ShipOrBaseName>-<Number>
+```
+Example:
+```
+Container-GM-MyShip-1
+```
 
-Sanity Checks - Make sure that whatever ship or base you are working with has power or your LCD that run your script will display and do nothing.
- - move your lcd into a group so you can rename it 
+---
 
-CAUTION - changing object names in the game may break existing scripts especially if that item is referenced by several scripts
+## 🔌 Sanity Checks
+- **Power**: Ensure your ship or base has power, or your LCD panels will display nothing.
+- **Grouping**: Move your LCD panels into a named group so you can easily find and rename them.
 
-NOTE - It may take a few seconds before a script appears to do anything
+---
 
-Tip - while looking at an item hit the letter P and open the devices tab. This will take you to the exact item you are looking at. Very useful when trying to figure out what script and objects you are trying to interact with.
+## ⚠️ Caution
+Renaming objects in-game may break existing scripts if they reference that item in multiple places.
 
-Tip - set a code on a script LCD and set to private should help accidental modifications
+---
 
-Tip - consider adding a switch to disable the LCD that contains your script to mimimize overhead on the server. 
-      Flip the switch on whenever you want the script to run.
+## 💡 Notes & Tips
+- **Script Delay**  
+  It may take a few seconds for a script to start updating its LCD panels.
+- **Quick-Select Device**  
+  While looking at an item, press **P** to open the Devices tab and jump directly to that object.
+- **Lock Down Scripts**  
+  Assign a code to your script-hosting LCD and set it to **Private** to prevent accidental edits.
+- **Performance Switch**  
+  Add an on/off switch that controls the LCD panel running your script.  
+  Flip it on only when you need the script to run, reducing server load.
+
+---
