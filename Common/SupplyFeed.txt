@@ -1,0 +1,39 @@
+Supply Feed
+
+This will limit the input amounts of items transferred. Best used from a larger storage box that will act as
+the warehouse. The target boxes are meant to just be topped off with the target amount.
+
+● What you need to edit
+● Edit the variable change-this-variable-name-5
+Multi instance and you need to change each one and use something else from your first variable on the last set.
+
+● Now you need to edit the input box input-fridge-bins to this 05-Food-*
+Now the supply is from both fridges instead of the sort bin
+
+● Now you need to edit the output box fridge-to-input-food-proc to 05-Food-Input-TT
+
+● Now put the item id’s into the proper ID list
+
+Last is the new line
+{{~set 'Amount' 50}}
+it’s set to 50 but change 50 to however many you want to supply
+
+========================================
+
+{{#items E.S 'input-fridge-bins'}}
+{{~set 'change-this-variable-name-5' ''}}
+{{~set 'Amount' ''}}
+
+{{#test Id in 'replace-with-item-ID'}}
+{{~set 'change-this-variable-name-5' 'fridge-to-input-food-proc'}}
+{{~set 'Amount' 50}}
+{{/test}}
+
+{{#ok @root.Data.change-this-variable-name-5}}
+{{#move ../. @root.E.S @root.Data.change-this-variable-name-5 @root.Data.Amount}}
+{{datetime}}
+{{Source}} -> {{Destination}} 
+{{format Count '{0,5}'}}:
+{{/move}}
+{{/ok}}
+{{/items}}

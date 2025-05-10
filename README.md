@@ -13,6 +13,12 @@ The original author’s repo is available here:
 
 ## 📝 What I’ve Learned So Far
 
+### Naming Scripts and Displays that use scripts
+LCD that that contain the script must be name **Script:UniqueName** and the display lcd will follow be the same without the Script: prefix ie. **UniqueName**
+
+There are some other patterns to script names. An asterik at the end of the script name indicates a wild card to allow the same script to 
+show results on multiple displays.
+
 ### Handlebars‐Style Syntax
 - **Script blocks** are wrapped in double curly braces:  
   `{{ scriptCode }}`
@@ -26,7 +32,7 @@ The original author’s repo is available here:
   `~set 'myList' '1,2,3'`
 
 ### Naming Conventions
-To avoid conflicts with in-game items, use this pattern when renaming:
+To avoid conflicts with in-game items, use this pattern when naming:
 ```
 <ItemType>-<YourInitials>-<ShipOrBaseName>-<Number>
 ```

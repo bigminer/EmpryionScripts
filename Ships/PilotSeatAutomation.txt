@@ -1,0 +1,19 @@
+This script will simply turn on/off a device when a player sits in a cockpit chair.
+This sets the E.S.Pilot.Name to not empty
+In this case we will always turn on the shields on and gravity off when seated.
+When not seated the gravity will be turned on. I imagine there are lots of neat ways
+to use the pilot feature
+============================================
+
+{{#if E.S.Pilot.Name}}
+  {{#devices E.S 'ShieldGenerator'}}
+    {{setactive .0 true}}
+  {{/devices}}
+  {{#devices E.S 'Gravity'}}
+    {{setactive .0 false}}
+  {{/devices}}
+{{else}}
+  {{#devices E.S 'GravityGenerator'}}
+    {{setactive .0 true}}
+  {{/devices}}
+{{/if}}

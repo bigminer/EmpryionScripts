@@ -1,0 +1,32 @@
+This script will automatically enable gravity while in space.
+However you can override by using two switches and signals. 
+One switch will be hidden and in the disabled position with a signal named 'AutoGravity'
+
+The second switch will be the actual lever with a signal named 'GravityOverride'
+
+Setup a XOR signal with the left side values as 'AutoGravity' and 'GravityOverride'. The right side value will be 'Gravity'
+
+Lastly, setup the GravityGenerator to follow the Gravity signal
+
+<align=center>
+ 
+ 
+{{#test P.PlayfieldType 'eq' 'Space'}}
+{{~setswitch @root.E.S 'AutoGravity' false}}
+{{~setswitch @root.E.S 'AutoGravity' true}}
+AutoGravitiyControl:<pos=60%>ON
+{{else}}
+{{~setswitch @root.E.S 'AutoGravity' true}}
+{{~setswitch @root.E.S 'AutoGravity' false}}
+AutoGravitiyControl:<pos=60%>OFF
+{{/test}}
+{{~#devices E.S 'GravityGenerator'}}
+{{~#ok .0/Active}} 
+Gravitygenerator:<pos=60%>ON
+{{else}}
+Gravitygenerator:<pos=60%>OFF
+{{/ok}}
+{{/devices}}
+ 
+ 
+Gravitiy Override:

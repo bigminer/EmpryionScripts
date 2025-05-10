@@ -1,0 +1,21 @@
+This script will swap colors on a target light. Useful for validating the scripts are functioning.
+################################
+
+
+{{#lights E.S 'LightTest1TT'}}
+{{#intervall 4}}
+{{lightcolor this 'ff00ff'}}
+{{#intervall 2}}
+{{lightintensity this 1}}
+{{else}}
+{{lightintensity this 2}}
+{{/intervall}}
+{{else}}
+{{lightcolor this '00ff00'}}
+{{#intervall 2}}
+{{lightintensity this 1}}
+{{else}}
+{{lightintensity this 2}}
+{{/intervall}}
+{{/intervall}}
+{{/lights}}

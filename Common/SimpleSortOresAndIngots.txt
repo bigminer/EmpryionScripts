@@ -1,0 +1,27 @@
+
+This script is an example of how you could sort Ores and ingots
+===========================
+
+{{#items E.S '01-Sorting-TT'}}
+{{~set 'change-this-variable-name-4' ''}}
+{{~set 'Amount' ''}}
+
+{{!Ore - this is just a comment}}
+{{#test Id in 'replace-with-ore-id'}}
+{{~set 'change-this-variable-name-4' 'Output-Bin-Name-Goes-Here'}}
+{{/test}}
+
+{{!Ingots - this is just a comment}}
+{{#test Id in 'replace-with-ingot-id'}}
+{{~set 'change-this-variable-name-4' 'Output-Bin2-Name-Goes-Here'}}
+{{/test}}
+
+
+{{#ok @root.Data.change-this-variable-name-4}}
+{{#move ../. @root.E.S @root.Data.change-this-variable-name-4 @root.Data.Amount}}
+{{datetime}}
+{{Source}} -> {{Destination}} 
+{{format Count '{0,5}'}}:
+{{/move}}
+{{/ok}}
+{{/items}}

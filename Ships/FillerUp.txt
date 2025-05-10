@@ -1,0 +1,30 @@
+This script will automatically top of your fuel, oxygen, and pentaxid. Might be a good one to combine with the pilot chair script
+###########################
+
+{{#items E.S 'your-fuel-storage'}}
+{{~set 'Fuel-Fill-Variable' ''}}
+{{~set 'Amount' ''}}
+
+{{#test Id in '4314,4335,4421'}}
+{{~set 'Fuel-Fill-Variable' 'Fuel'}}
+{{~set 'Amount' 100}}
+{{/test}}
+
+{{#test Id in '4176'}}
+{{~set 'Fuel-Fill-Variable' 'Oxygen'}}
+{{~set 'Amount' 100}}
+{{/test}}
+
+{{#test Id in '4342'}}
+{{~set 'Fuel-Fill-Variable' 'Pentaxid'}}
+{{~set 'Amount' 100}}
+{{/test}}
+
+{{#ok @root.Data.Fuel-Fill-Variable}}
+{{~fill ../. @root.E.S @root.Data.Fuel-Fill-Variable @root.Data.Amount}}
+{{datetime}}
+{{Source}} -> {{Destination}} 
+{{format Count '{0,5}'}}:
+{{/fill}}
+{{/ok}}
+{{/items}}

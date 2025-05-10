@@ -1,0 +1,23 @@
+Script:Damage*
+displays - DamageBridge[40%]
+
+As soon as any block on your ship/base gets damaged, you’ll see the sprite banner once, then each damaged block’s name and percent lost.
+
+
+{{~set 'HT' true}}
+{{#devices E.S '*'}}
+{{#each .}}
+{{#test Damage '>' 0}}
+{{#math ../Damage '/' ../HitPoints}}
+{{#ok @root.Data.HT}}
+{{~set 'HT' false}}
+
+<size=100%>
+<sprite=25><sprite=25><sprite=25><sprite=25><sprite=25><sprite=25><sprite=25><sprite=25></size>
+{{/ok}}
+{{~i18n ../../Id 'English'}}<pos=22em>
+{{~format . '{0:p0}'}}</pos>
+{{/math}}
+{{/test}}
+{{/each}}
+{{/devices}}

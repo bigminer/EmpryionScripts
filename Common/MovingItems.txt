@@ -1,0 +1,24 @@
+####
+ This will take items from a box and move them to another box
+ The Amount variable is currently set to empty which is all items of specified id. You can change this value to a specific amount.
+ I believe that will keep the target box at that amount if available in source box.
+ the #test Id in '' can accept a single item id or a list of item ids seperated by a comma. Do not leave a trailing comma
+#####
+
+{{#items E.S 'Input-box-Name-Goes-Here'}}
+{{~set 'change-this-variable-name-2' ''}}
+{{~set 'Amount' ''}}
+
+{{#test Id in 'Replace-This-With-Item-ID'}}
+{{~set 'change-this-variable-name-2' 'Output-box-Name-Goes-Here'}}
+{{/test}}
+
+{{#ok @root.Data.change-this-variable-name-2}}
+{{#move ../. @root.E.S @root.Data.change-this-variable-name-2 @root.Data.Amount}}
+{{datetime}}
+{{Source}} -> {{Destination}} 
+{{format Count '{0,5}'}}:
+{{/move}}
+{{/ok}}
+{{/items}}
+

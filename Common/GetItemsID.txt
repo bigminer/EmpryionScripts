@@ -1,0 +1,6 @@
+This one line script will provide the item id for items placed inside a container. Useful for
+configuring other scripts to move or display items based on item id.
+
+###################
+
+{{#items E.S 'box'}}{{Id}},{{/items}}

@@ -1,8 +1,12 @@
-the deconstruct now costs 100 money cards per 10 blocks, and recycle costs 200.
+This script will deconstruct a vessel and place it the blocks into a target container.
+
+The deconstruct now costs 100 money cards per 10 blocks, and recycle costs 200.
 The money cards must be deposited in the target box first
 The only thing you need to modify here is the name of the target container. ie Deconbox-gm-base-1
 You will have to manually modify the target vessels core to Core-Destruct-IDNUMBER
 After the script removes the vessel you will have to manually remove the core.
+=================================== 
+
 
 {{#entitiesbyname '*' 500}}
 {{#each .}}
