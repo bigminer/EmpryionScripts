@@ -2,6 +2,8 @@
 from Vega AI
 Script:AmmoOverview*
 Display Names
+uses lcd projector AmmoOverviewBridge[50%]
+adjust Height, width, and position
 ============================== 
  
 {{~set 'WeaponsIDs' ''}}
@@ -39,9 +41,26 @@ Display Names
 {{~setcache 'WeaponsIDs' Data.WeaponIDs}}
 {{~setcache 'AmmoIDs' Data.AmmoIDs}}
  
+{{!simplified formatting}}
+ {{#getitems E.S '*Box-*'}}
+  {{#itemlist . @root.Data.AmmoIDs}}
+    {{#test Id in @root.Data.AmmoIDs}}
+      {{i18n Id}} – {{#test Count eq 0}}Empty{{else}}{{Count}}{{/test}}
+    {{/test}}
+  {{/itemlist}}
+{{/getitems}}
+
+{{#split Data.WeaponIDs ',' true}}
+  {{#each .}}
+    {{lookup @root.Data (concat 'WeaponCount' .)}}× {{i18n .}}
+  {{/each}}
+{{/split}}
+ 
+ 
+ Old formatting below
  
 <align=center>
-<pos=15%><size=200%><sprite name="Ammunition">
+<pos=15%><size=100%><sprite name="Ammunition">
 </size></align>
 {{~#getitems E.S '*Box-*'}}
 {{~#itemlist . @root.Data.AmmoIDs}}
