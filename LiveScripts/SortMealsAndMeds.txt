@@ -1,0 +1,66 @@
+{{!Ingredients}}
+{{#items E.S 'Adv-Construction-Array'}}
+{{~set 'VarIngredients' ''}}
+{{~set 'Amount' ''}}
+{{#test Id in '4376,4382,4383,4399,4400,4401,4402,4405,4406,4407,4408,4411,4412,4413,4414,4415,4416,4419,4426,4431,4434,4435,4439,4440,4442,4443,4445,4447,4451,4452,4453,4455,4459,4461,4462,4469,4479,4480,4481,4482,4483,4490,4492,4493'}}
+{{~set 'VarIngredients' 'FridgeIngredients'}}
+{{/test}}
+{{#ok @root.Data.VarIngredients}}
+{{#move ../. @root.E.S @root.Data.VarIngredients @root.Data.Amount}}
+{{datetime}}
+{{Source}} -> {{Destination}} 
+{{format Count '{0,5}'}}:
+{{/move}}
+{{/ok}}
+{{/items}}
+
+{{!Nitrocellulous1Stack}}
+{{#items E.S 'Adv-Construction-Array'}}
+{{~set 'VarIngredients' ''}}
+{{~set 'Amount' ''}}
+{{#test Id in '4377'}}
+{{~set 'VarIngredients' 'FridgeIngredients'}}
+{{~set 'Amount' 8000}}
+{{/test}}
+{{#ok @root.Data.VarIngredients}}
+{{#move ../. @root.E.S @root.Data.VarIngredients @root.Data.Amount}}
+{{datetime}}
+{{Source}} -> {{Destination}} 
+{{format Count '{0,5}'}}:
+{{/move}}
+{{/ok}}
+{{/items}}
+
+{{!Meals}}
+{{#items E.S 'FridgeIngredients'}}
+{{~set 'VarMealsNMeds' ''}}
+{{~set 'Amount' ''}}
+{{#test Id in '4420,4457'}}
+{{~set 'VarMealsNMeds' 'MealsAndMeds'}}
+{{/test}}
+{{#ok @root.Data.VarMealsNMeds}}
+{{#move ../. @root.E.S @root.Data.VarMealsNMeds @root.Data.Amount}}
+{{datetime}}
+{{Source}} -> {{Destination}} 
+{{format Count '{0,5}'}}:
+{{/move}}
+{{/ok}}
+{{/items}}
+
+
+{{!MetalsForMeds-qty10only}}
+{{#items E.S 'Adv-Construction-Array'}}
+{{~set 'VarMetalsForMeds' ''}}
+{{~set 'Amount' ''}}
+{{#test Id in '4367,7345'}}
+{{~set 'VarMetalsForMeds' 'FridgeIngredients'}}
+{{~set 'Amount' 10}}
+{{/test}}
+{{#ok @root.Data.VarMetalsForMeds}}
+{{#move ../. @root.E.S @root.Data.VarMetalsForMeds @root.Data.Amount}}
+{{datetime}}
+{{Source}} -> {{Destination}} 
+{{format Count '{0,5}'}}:
+{{/move}}
+{{/ok}}
+{{/items}}

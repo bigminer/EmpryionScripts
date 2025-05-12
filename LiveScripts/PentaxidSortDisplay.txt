@@ -1,0 +1,28 @@
+This script displays the content of a box and has some extra html styling.
+======================================
+
+<align=center><color=#A7E2F5>╱▔▔▔▔▔╲
+<color=yellow>◀ Pentaxid ▶</color>
+╲▁▁▁▁▁╱</color></align></size><indent=8>
+<size=4>▾   ▾
+{{scroll 5 1}}
+{{#items E.S 'CargoPentaxid'}}
+Qty : {{Count}}  
+{{/items}}
+{{/scroll}}
+
+{{!Ingredients}}
+{{#items E.S 'Adv-Construction-Array'}}
+{{~set 'VarPentaxid' ''}}
+{{~set 'Amount' ''}}
+{{#test Id in '4342'}}
+{{~set 'VarPentaxid' 'CargoPentaxid'}}
+{{/test}}
+{{#ok @root.Data.VarPentaxid}}
+{{#move ../. @root.E.S @root.Data.VarPentaxid @root.Data.Amount}}
+{{datetime}}
+{{Source}} -> {{Destination}} 
+{{format Count '{0,5}'}}:
+{{/move}}
+{{/ok}}
+{{/items}}

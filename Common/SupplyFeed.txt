@@ -37,3 +37,21 @@ it’s set to 50 but change 50 to however many you want to supply
 {{/move}}
 {{/ok}}
 {{/items}}
+
+{{#items E.S 'CargoIn'}}
+{{~set 'VarConstructIngots' ''}}
+{{~set 'Amount' ''}}
+
+{{#test Id in '4173,4311,4312,4321,4322,4323,4324,4326,4327,4333,4346,4360,4361,4364,4366,4367,4375,7301,7312,7343,7345'}}
+{{~set 'VarConstructIngots' 'Adv-Construction-Array'}}
+{{~set 'Amount' 8000}}
+{{/test}}
+
+{{#ok @root.Data.VarConstructIngots}}
+{{#move ../. @root.E.S @root.Data.VarConstructIngots @root.Data.Amount}}
+{{datetime}}
+{{Source}} -> {{Destination}} 
+{{format Count '{0,5}'}}:
+{{/move}}
+{{/ok}}
+{{/items}}
