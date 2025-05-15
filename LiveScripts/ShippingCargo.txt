@@ -1,18 +1,19 @@
-Bi Directional Cargo Transer requires three named containers. Only setup these 3 boxes per base or vessel.
+Recieving only requires a box name 'CargoIn'
+Sending requires a box named CargoOut@TargetVesselID
+You can only have one CargoIn box per Vessel/Base. You can have multiple CargoOut@TargetVesselID boxes.
 
-Items are shipped via the CargoOut boxes and Items are recieved via the CargoIn boxes.
-When sending items placed them in the container that matches the destination you are sending to wich is the base or vessel id. ie CargoOut@1234
+Items are shipped via the CargoOut boxes and Items are recieved via the CargoIn boxes. 
+
+When sending items placed them in the container that matches the destination you are sending to which is the base or vessel id. ie CargoOut@1234
 
 Shipping: drop Items in manually or use supporting scripts to move items into CargoOut@VesselOrBaseID boxes 
 Recieving: retrieve items manually or use supporting scripts to move items from the CargoIn box to desired location
 #there is no way to request items per se, you can only ship items. 
 
-When sending items placed them in the container that matches the destination you are sending to.
-Recieved Items will Land in the CargoIn Box
-
-
 Current Cargo Container Ids
 ______________________________
+
+
 BA - Main Base = CargoOut@48001
 BA - Forge = CargoOut@1240
 HVRE - The Mule Mk 2 = CargoOut@3790

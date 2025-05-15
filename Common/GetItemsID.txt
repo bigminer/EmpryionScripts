@@ -3,4 +3,6 @@ configuring other scripts to move or display items based on item id.
 
 ###################
 
-{{#items E.S 'box'}}{{Id}},{{/items}}
+ID list for items placed in box:
+
+{{#items E.S 'ID-Box-Citadel'}}{{Id}},{{/items}}

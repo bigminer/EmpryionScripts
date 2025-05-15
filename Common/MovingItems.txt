@@ -22,3 +22,94 @@
 {{/ok}}
 {{/items}}
 
+
+{{!===Sort Ship Ammo===}}
+{{#items E.S 'Main-Storage-Dump,Green-Adv-Box,Red-Adv-Box,Blue-Adv-Box'}}
+{{~set 'VarShipAmmo-Citadel' ''}}
+{{~set 'Amount' ''}}
+{{#test Id in '4152,4244,4247,4249,4250,4252,4253,4256,4258,4259,4262,4263,4264,4265,4266,4320,4900,5054,5063,5065,5087,5798,5807,7108,7240,7242'}}
+{{~set 'VarShipAmmo-Citadel' 'Storage-Ship-Ammo'}}
+{{/test}}
+{{#ok @root.Data.VarShipAmmo-Citadel}}
+{{#move ../. @root.E.S @root.Data.VarShipAmmo-Citadel @root.Data.Amount}}
+{{datetime}}
+{{Source}} -> {{Destination}} 
+{{format Count '{0,5}'}}:
+{{/move}}
+{{/ok}}
+{{/items}}
+{{!===============}}
+
+{{!===Send Ores to Forge===}}
+{{#items E.S 'Main-Storage-Dump'}}
+{{~set 'sVarOres' ''}}
+{{~set 'Amount' ''}}
+
+{{#test Id in '4296,4297,4299,4301,4316,4317,4318,4332,4345,4359,4362,4365,7342,7344'}}
+{{~set 'sVarOres' 'Forge-Box'}}
+{{/test}}
+
+{{#ok @root.Data.sVarOres}}
+{{#move ../. @root.E.S @root.Data.sVarOres @root.Data.Amount}}
+{{datetime}}
+{{Source}} -> {{Destination}} 
+{{format Count '{0,5}'}}:
+{{/move}}
+{{/ok}}
+{{/items}}
+
+
+
+{{!===Send ForgedItems to Main===}}
+{{#items E.S 'Forge-Box'}}
+{{~set 'VarConstructIngots' ''}}
+{{~set 'Amount' ''}}
+
+{{#test Id in '4173,4311,4312,4321,4322,4323,4324,4326,4327,4333,4346,4360,4361,4364,4366,4367,4375,7301,7312,7343,7345'}}
+{{~set 'VarConstructIngots' 'Main-Storage-Dump'}}
+{{/test}}
+
+{{#ok @root.Data.VarConstructIngots}}
+{{#move ../. @root.E.S @root.Data.VarConstructIngots @root.Data.Amount}}
+{{datetime}}
+{{Source}} -> {{Destination}} 
+{{format Count '{0,5}'}}:
+{{/move}}
+{{/ok}}
+{{/items}}
+
+{{!===Sort Ship Supplies ===}}
+{{#items E.S 'Main-Storage-Dump,Green-Adv-Box,Red-Adv-Box,Blue-Adv-Box'}}
+{{~set 'VarShipSupplies' ''}}
+{{~set 'Amount' ''}}
+
+{{#test Id in '4176,4177,4342,4421,4445'}}
+{{~set 'VarShipSupplies' 'Ship-Supplies'}}
+{{/test}}
+
+{{#ok @root.Data.VarShipSupplies}}
+{{#move ../. @root.E.S @root.Data.VarShipSupplies @root.Data.Amount}}
+{{datetime}}
+{{Source}} -> {{Destination}} 
+{{format Count '{0,5}'}}:
+{{/move}}
+{{/ok}}
+{{/items}}
+
+{{!===Sort Gear Supplies ===}}
+{{#items E.S 'Main-Storage-Dump,Green-Adv-Box,Red-Adv-Box,Blue-Adv-Box,Ship-Supplies'}}
+{{~set 'VarGearSupplies' ''}}
+{{~set 'Amount' ''}}
+
+{{#test Id in '4147,4148,4150,4151,4153,4154,4156,4157,4158,4160,4161,4162,4246,'}}
+{{~set 'VarGearSupplies' 'Storage-Gear-Ammo'}}
+{{/test}}
+
+{{#ok @root.Data.VarGearSupplies}}
+{{#move ../. @root.E.S @root.Data.VarGearSupplies @root.Data.Amount}}
+{{datetime}}
+{{Source}} -> {{Destination}} 
+{{format Count '{0,5}'}}:
+{{/move}}
+{{/ok}}
+{{/items}}

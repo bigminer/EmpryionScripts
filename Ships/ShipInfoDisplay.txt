@@ -1,3 +1,4 @@
+
 <color=green>☢ {{use E.S.FuelTank}}
 {{~bar Content 0 Capacity 20 }} 
 {{~math Content '/' Capacity}}
@@ -5,7 +6,6 @@
 {{~/math}} =
 {{~format Content ' {0,7:0.0}'}} / {{format Capacity '{0,7:0.0}'}} Fuel
 {{~/use}}</color>
-
 <color=#2ECCFA>✇ {{use E.S.OxygenTank}}
 {{~bar Content 0 Capacity 20 }} 
 {{~math Content '/' Capacity}}
@@ -13,7 +13,6 @@
 {{~/math}} = 
 {{~format Content ' {0,7:0.0}'}} / {{format Capacity '{0,7:0.0}'}} Oxygen
 {{~/use}}</color>
-
 <color=purple>⚛ {{use E.S.PentaxidTank}}
 {{~bar Content 0 Capacity 20 }} 
 {{~math Content '/' Capacity}}
@@ -21,19 +20,22 @@
 {{~/math}} = 
 {{~format Content ' {0,7:0.0}'}} / {{format Capacity '{0,7:0.0}'}} Pentaxid
 {{/use}}</color>
- 
-
-{{~setswitch @root.E.S 'ShieldState' .0/Active}}
+<color=red>X {{#use E.S.DamageLevel}}
+{{~bar . 0 100 25 }}
+{{~format . '{0,8:P2}'}} Damage
+{{/use}}</color>
+{{#devices E.S 'SheildGen-GM-Tokyo'}}
 {{~#if .0/Active}}
-{{~@root.E.Name}}
+<color=green>Shields Online</color>
 {{~else}}
-{{~#intervall 1}} 
-{{~@root.E.Name}} <color=yellow>Shield Offline</color>
-{{~else}}
-{{~@root.E.Name}} <color=red>Shield Offline</color>
-{{~/intervall}}
+<color=red>Shields Offline</color>
 {{/if}}
 {{/devices}}
+
+
+
+
+Hanger Bay:
 {{#sort E.S.DockedE 'Name'}}{{#each .}}
 - {{Name}}<pos=18em> 
 {{~#if S.IsPowerd}} !! ON !! {{/if}}

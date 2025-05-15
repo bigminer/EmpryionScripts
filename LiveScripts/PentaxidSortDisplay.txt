@@ -1,22 +1,25 @@
 This script displays the content of a box and has some extra html styling.
 ======================================
-
+{{!PentaxiSortAndDisplay}}
+<size=10>
 <align=center><color=#A7E2F5>╱▔▔▔▔▔╲
-<color=yellow>◀ Pentaxid ▶</color>
-╲▁▁▁▁▁╱</color></align></size><indent=8>
-<size=4>▾   ▾
-{{scroll 5 1}}
-{{#items E.S 'CargoPentaxid'}}
-Qty : {{Count}}  
-{{/items}}
-{{/scroll}}
+<color=yellow>Citadel</color>
+<color=yellow>Pentaxid</color>
+╲▁▁▁▁▁╱</color></align><indent=8>
+{{#items E.S 'Pentaxid-Citadel-Tank'}}
 
-{{!Ingredients}}
-{{#items E.S 'Adv-Construction-Array'}}
+<color=#de31e9>  Qty : {{Count}}  
+{{/items}}
+</align>
+</size>
+
+
+{{#items E.S 'Main-Storage-Dump,Green-Adv-Box,Red-Adv-Box,Blue-Adv-Box'}}
 {{~set 'VarPentaxid' ''}}
 {{~set 'Amount' ''}}
 {{#test Id in '4342'}}
-{{~set 'VarPentaxid' 'CargoPentaxid'}}
+{{~set 'Amount' 600}}
+{{~set 'VarPentaxid' 'Pentaxid-Citadel-Tank'}}
 {{/test}}
 {{#ok @root.Data.VarPentaxid}}
 {{#move ../. @root.E.S @root.Data.VarPentaxid @root.Data.Amount}}

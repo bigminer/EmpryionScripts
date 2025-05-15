@@ -6,14 +6,14 @@ to use the pilot feature
 ============================================
 
 {{#if E.S.Pilot.Name}}
-  {{#devices E.S 'ShieldGenerator'}}
+  {{#devices E.S 'SheildGen-GM-Tokyo'}}
     {{setactive .0 true}}
   {{/devices}}
-  {{#devices E.S 'Gravity'}}
+  {{#devices E.S 'Gravity-GM-Tokyo'}}
     {{setactive .0 false}}
   {{/devices}}
 {{else}}
-  {{#devices E.S 'GravityGenerator'}}
+  {{#devices E.S 'Gravity-GM-Tokyo'}}
     {{setactive .0 true}}
   {{/devices}}
 {{/if}}
