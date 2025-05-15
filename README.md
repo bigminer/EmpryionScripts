@@ -4,10 +4,12 @@ A personal collection of Empyrion scripting examples and my notes as I learn to 
 
 ---
 
-## 📂 Original Repository
+## 📂 Original Repositories
 
 The original author’s repo is available here:  
 [GitHub-TC/EmpyrionScripting](https://github.com/GitHub-TC/EmpyrionScripting)
+(https://github.com/GitHub-TC/EmpyrionScripting-Collection/tree/master/Scripts)
+
 
 ---
 
